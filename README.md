@@ -3,7 +3,35 @@
 
 This python library uses alternating Least Squares minimization for matrix completion. The minimization procedure uses Gradient Descent with decaying learning rate. Gradient Descent is implimented using autograd package (numpy).
 
-To run the code please use :
+
+## Library Usage 
+
+> python main.py --help 
+```
+usage: main.py [-h] [-d] [-v] [-file FILEPATH] [-m M] [-n N] [-obs OBSERVED_FRACTION] [-k RANK] [-ai MAX_ALS_STEPS] [-gi MAX_GD_STEPS]
+
+Matrix Completion Library using ALS. Each LS step uses Gradient Descent. Factorizes a matrix M of dimension [mxn] into U x transpose(V).
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d, --run_demo        Runs the demo
+  -v, --verbose         sets verbosity to True. False verbosity removes training messages.
+  -file FILEPATH, --filepath FILEPATH
+                        Filepath for the partially observed matrix M
+  -m M, --m M           m for demo matrix
+  -n N, --n N           n for demo matrix
+  -obs OBSERVED_FRACTION, --observed_fraction OBSERVED_FRACTION
+                        The fraction of the demo matrix that should be observed.(1 - observed_fraction) is the fraction of matrix entries that are missing.
+  -k RANK, --rank RANK  Rank of the required decomposition. Must be less than m and n
+  -ai MAX_ALS_STEPS, --max_ALS_steps MAX_ALS_STEPS
+                        Maximum number of ALS steps
+  -gi MAX_GD_STEPS, --max_GD_steps MAX_GD_STEPS
+                        Maximum number of GD steps for each least square optimization in ALS
+```
+## Sample Demo Run
+
+A demo run can be run by using 
+
 > python main.py --run_demo 
 
 Sample Result : 
